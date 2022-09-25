@@ -3,10 +3,6 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 
-const onclick = () => {
-  console.log("gfdg");
-};
-
 export const Header = ({ search, searchHidden }) => {
   return (
     <header>
@@ -14,7 +10,6 @@ export const Header = ({ search, searchHidden }) => {
         <h1
           className="text-center text-white md:text-6xl font-extrabold tracking-tighter mb-4"
           data-aos="zoom-y-out"
-          onClick={onclick}
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-l from-blue-500 to-teal-400">
             Decentralized

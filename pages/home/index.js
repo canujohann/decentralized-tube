@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useApolloClient, gql } from "@apollo/client";
 import { Video } from "../../components/Video";
 import { Header } from "../../components/Header";
+import { Layout } from "../../components/Layout";
 
 export default function Main() {
   // Creating a state to store the uploaded video
@@ -70,33 +71,28 @@ export default function Main() {
   };
 
   useEffect(() => {
-    // Runs the function getVideos when the component is mounted
     getVideos();
   }, [search]);
   return (
-    <div className="w-full bg-[#1a1c1f] flex flex-row">
-      <div className="flex-1 h-screen flex flex-col">
-        <Header
-          search={(e) => {
-            setSearch(e);
-          }}
-        />
-
-        <div className="flex flex-row flex-wrap">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              className="w-80"
-              onClick={() => {
-                // Navigation to the video screen (which we will create later)
-                window.location.href = `/video?id=${video.id}`;
-              }}
-            >
-              <Video video={(true, video)} />
-            </div>
-          ))}
-        </div>
+    <Layout
+      search={(e) => {
+        setSearch(e);
+      }}
+    >
+      <div className="flex flex-row flex-wrap">
+        {videos.map((video) => (
+          <div
+            key={video.id}
+            className="w-80"
+            onClick={() => {
+              // Navigation to the video screen (which we will create later)
+              window.location.href = `/video?id=${video.id}`;
+            }}
+          >
+            <Video video={(true, video)} />
+          </div>
+        ))}
       </div>
-    </div>
+    </Layout>
   );
 }

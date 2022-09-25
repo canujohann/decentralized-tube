@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Landing() {
+  useEffect(() => {
+    // if "walletAddress" is existing in the local storage,
+    // we can consider the application is already connected
+    // TODO need to be improve (local storage cleaning, network validation, etc.)
+    if (localStorage.getItem("walletAddress")) {
+      location.href = "/home";
+    }
+  }, []);
+
   // Creating a function to connect user's wallet
   const connectWallet = async () => {
     try {
@@ -19,6 +28,8 @@ function Landing() {
 
       // At last save the user's wallet address in browser's local storage
       localStorage.setItem("walletAddress", accounts[0]);
+      //and redirect to
+      location.href = "/home";
     } catch (error) {
       console.log(error);
     }
@@ -35,10 +46,10 @@ function Landing() {
                 className="text-5xl text-white md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
                 data-aos="zoom-y-out"
               >
-                It is YouTube, but{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-l from-blue-500 to-teal-400">
                   Decentralized
                 </span>
+                Tube
               </h1>
               <div className="max-w-3xl mx-auto">
                 <p
@@ -46,9 +57,8 @@ function Landing() {
                   data-aos="zoom-y-out"
                   data-aos-delay="150"
                 >
-                  A YouTube Clone built on top of Polygon network, allow users
-                  to create, share and watch videos, without worrying about
-                  their privacy.
+                  A video platform to create, share and watch videos, built on
+                  top of Polygon network.
                 </p>
                 <button
                   className="items-center  bg-white rounded-full font-medium  p-4 shadow-lg"
