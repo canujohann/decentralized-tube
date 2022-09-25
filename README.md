@@ -1,34 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Decentralized-tube
 
-## Getting Started
+This project is hugely inspired from the awesome [article](https://blog.suhailkakar.com/building-a-full-stack-web3-youtube-clone-with-next-ipfs-the-graph-solidity-and-livepeer)
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
+- TheGraph (GraphQL) as indexer
+- Apollo client (to connect to theGraph)
+- Mumbai (MATIC testnet)
+- Next.js
+- Tailwind
+- plyr-react
+
+## Before jumping into the code
+
+Create an account on [theGraph](https://thegraph.com/).
+
+Switch your Metamask network to mumbai :
+
+- Network Name: Mumbai Testnet
+- New RPC URL: https://rpc-mumbai.maticvigil.com/
+- Chain ID: 80001
+- Currency Symbol: MATIC
+- Block Explorer URL: https://polygonscan.com/
+
+and get some toket from the faucet : https://faucet.polygon.technology/
+
+Your wallet private key will be needed to create the contract through hardhat - create a `.env` file that contains your private key:
+
+```
+# WARNING ::: EVER, NEVER USE YOUR REAL WALLET PRIVATE KEY !!!! AND NEVER PUSH THIS FILE TO GITHUB !!!!
+touch .env
+echo "PRIVATE_KEY='xxx'" > .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+And install all the needed package with `npm i`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Blockchain side
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Contract Deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Deploy the contract to the mumbai network:
 
-## Learn More
+```
+npx hardhat run scripts/deploy.js --network mumbai
+>> YouTube deployed to: 0x6fA85CFb3b8714D00Cc2f198826CFEa5003E0Fba
+```
 
-To learn more about Next.js, take a look at the following resources:
+> Don't forget to store temporary the contract adress displayed in the console
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### TheGraph creation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+TODO need to run command , but it will delete the existing files. need to do some tests later, when application will be stable.
+need to build thegraph too with `yarn build`, but already done ...
 
-## Deploy on Vercel
+## FrontEnd side
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Other
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Try running some of the following tasks:
+
+```shell
+npx hardhat help
+npx hardhat test
+GAS_REPORT=true npx hardhat test
+npx hardhat node
+npx hardhat run scripts/deploy.js
+```
