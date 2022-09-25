@@ -20,8 +20,8 @@ export const Video = ({ video, horizontal }) => {
         }
         src={`${process.env.NEXT_PUBLIC_INFURA_IPFS_PRIVATE_GATEWAY}/${video.thumbnailHash}`}
         alt=""
-        width={60}
-        height={40}
+        width={200}
+        height={150}
       />
       <div className={horizontal && "ml-3  w-80"}>
         <h4 className="text-md font-bold dark:text-white mt-3">
