@@ -1,5 +1,7 @@
 # Decentralized-tube
 
+A fully decentralized videos platform (youtube clone), ready to be deployed on MATIC network. 
+
 ![decentralized-tube](./docs/decentralized-tube-screen.png)
 
 ## Tech stack
