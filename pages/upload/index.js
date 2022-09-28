@@ -22,7 +22,7 @@ export default function Upload() {
   const videoRef = useRef();
 
   const projectId = process.env.NEXT_PUBLIC_INFURA_IPFS_PROJECT_ID;
-  const projectSecret = process.envNEXT_PUBLIC_INFURA_IPFS_PROJECT_SECRET;
+  const projectSecret = process.env.NEXT_PUBLIC_INFURA_IPFS_PROJECT_SECRET;
   const auth =
     "Basic " + Buffer.from(projectId + ":" + projectSecret).toString("base64");
 
