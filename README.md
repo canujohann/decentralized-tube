@@ -1,6 +1,6 @@
 # Decentralized-tube
 
-This "decentralized video storage" project is inspired from this [article](https://blog.suhailkakar.com/building-a-full-stack-web3-youtube-clone-with-next-ipfs-the-graph-solidity-and-livepeer).
+A fully decentralized videos platform (youtube clone), ready to be deployed on MATIC network. 
 
 ![decentralized-tube](./docs/decentralized-tube-screen.png)
 
@@ -108,12 +108,4 @@ NEXT_PUBLIC_INFURA_IPFS_PRIVATE_GATEWAY="your-private-gateway-url-for-infura-ipf
 
 # Other
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+This "decentralized video storage" project is inspired from this [article](https://blog.suhailkakar.com/building-a-full-stack-web3-youtube-clone-with-next-ipfs-the-graph-solidity-and-livepeer).
